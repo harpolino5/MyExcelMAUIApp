@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyExcelMAUIApp.MainPage"
+             Title="Електронна таблиця">
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Файл">
+            <MenuFlyoutItem Text="Зберегти" Clicked="SaveButton_Clicked" />
+            <MenuFlyoutItem Text="Відкрити" Clicked="ReadButton_Clicked" />
+            <MenuFlyoutItem Text="Вийти" Clicked="ExitButton_Clicked" />
+        </MenuBarItem>
+        <MenuBarItem Text="Довідка">
+            <MenuFlyoutItem Text="Довідка" Clicked="HelpButton_Clicked" />
+            <MenuFlyoutItem Text="Про програму" Clicked="AboutButton_Clicked" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*">
+
+        <ScrollView Grid.Row="0" Orientation="Horizontal">
+            <HorizontalStackLayout Spacing="4" Padding="4">
+                <Button Text="Порахувати" Clicked="CalculateButton_Clicked" />
+                <Button Text="Додати рядок" Clicked="AddRowButton_Clicked" />
+                <Button Text="Видалити рядок" Clicked="DeleteRowButton_Clicked" />
+                <Button Text="Додати стовпчик" Clicked="AddColumnButton_Clicked" />
+                <Button Text="Видалити стовпчик" Clicked="DeleteColumnButton_Clicked" />
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <HorizontalStackLayout Grid.Row="1" Spacing="8" Padding="8,0">
+            <Label Text="Режим: ВИРАЗ" VerticalOptions="Center" />
+            <Switch x:Name="modeSwitch" Toggled="ModeSwitch_Toggled" VerticalOptions="Center" />
+            <Label Text="ЗНАЧЕННЯ" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
+        <Label x:Name="statusLabel" Grid.Row="2" Padding="8,2" TextColor="Red" />
+
+        <ScrollView Grid.Row="3" Orientation="Both">
+            <Grid x:Name="grid" ColumnSpacing="2" RowSpacing="2" Padding="4" />
+        </ScrollView>
+    </Grid>
+</ContentPage>
